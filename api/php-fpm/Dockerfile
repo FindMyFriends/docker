@@ -3,6 +3,8 @@ FROM php:fpm-alpine
 RUN apk update  && apk add --no-cache git postgresql-dev zip unzip zlib-dev g++ make autoconf \
 	&& docker-php-ext-install pdo_pgsql zip bcmath
 
+RUN pecl install apcu
+
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 
 RUN curl -sSL https://github.com/xdebug/xdebug/archive/4ada850.zip -o /tmp/xdebug.zip \
