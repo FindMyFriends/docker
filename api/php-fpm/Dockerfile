@@ -1,7 +1,7 @@
 FROM php:fpm-alpine
 
-RUN apk update  && apk add --no-cache git postgresql-dev zip unzip zlib-dev g++ make autoconf \
-	&& docker-php-ext-install pdo_pgsql zip bcmath
+RUN apk update  && apk add --no-cache git postgresql-dev zip unzip zlib-dev g++ make autoconf libxslt-dev \
+	&& docker-php-ext-install pdo_pgsql zip bcmath xsl
 
 RUN pecl install apcu
 RUN pecl install igbinary
