@@ -1,5 +1,7 @@
 FROM php:fpm-alpine
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 RUN apk update \
 	&& apk add --no-cache git postgresql-dev zip unzip zlib-dev g++ make autoconf libxslt-dev \
 	&& docker-php-ext-install pdo_pgsql zip bcmath xsl \
